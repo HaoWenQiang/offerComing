@@ -69,12 +69,58 @@
 	超过核心线程 进队列 队列满了  初始化 最大线程 都满了 拒绝策略
 	核心线程
 	java锁机制
-
 	ThreadLocal 线程结束后是自动清楚线程缓存的值还是要手动清除
 	用ThreadLoacal 模拟 8个人赛跑，如何保证同一时间起跑 ，CountDown
 	Redis String类型是如何存储的
-
 	concurrentHashmap 如何分片 如何找到分片的
+
+
+度小满金融：
+
+	Java集合
+		List 下面的 ArrayList LikedList 
+		线程安全的List 
+		Collections.synchronizedList(List<T> list)
+		但是无论是读取还是写入，它都会进行加锁，当我们并发级别特别高，线程之间在任何操作上都会进行等待，因此在某些场景中它不是最好的选择
+		所以 使用 CopyOnWriteArrayList  读读之间不互斥并且更厉害的是读写也不互斥
+		Map
+		hashmap 如何去判断落到那个位置
+		concurrentHashmap
+	多线程
+		synchronized
+
+		如何实现对象锁
+		
+		一个类中的方法
+		class A{
+			synchronized void method1(){
+
+			}
+		}
+		public static void main(String[] args) {
+			// 假设线程1内
+			new A().method1();
+			// 假设线程2内
+			new A().method1();
+		}
+		线程1 和 2 会争夺锁嘛？ 不会 两个对象内
+		如果 是 static 修饰则会争夺锁
+		class A{
+			synchronized static void method1(){
+
+			}
+		}
+
+		关键字 1.6 后的优化 ，锁升级 轻量锁，偏向锁。。。。
+		线程池的拒绝策略
+	mysql
+		默认事务隔离机制， 索引失效，聚合索引 生效规则
+	redis
+	 	分布式锁 如何实现
+	spring
+		autowired inject resource 区别
+	mybatis 
+		#$ 区别 2点
 
 
 
